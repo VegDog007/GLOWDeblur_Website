@@ -509,944 +509,951 @@
         </div>
     </div>
 
-    <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
-      <div class="column is-full">
-        <h3 class="title is-4">Quantitative comparison with SOTA deblur models across real-world datasets RWBI and RWBlur400</h3>
-        
-        <div class="content has-text-centered" style="overflow-x: auto;">
-          <div class="table-container">
-            <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7-mobile is-size-6-tablet">
-              <thead>
-                <tr class="has-background-light">
-                  <th class="has-text-centered" style="vertical-align: middle;">Dataset</th>
-                  <th class="has-text-centered" style="vertical-align: middle;">Metrics</th>
-                  <th class="has-text-centered">Restormer</th>
-                  <th class="has-text-centered">Restormer*</th>
-                  <th class="has-text-centered">HI-Diff</th>
-                  <th class="has-text-centered">DiffIR</th>
-                  <th class="has-text-centered">MISC-Filter</th>
-                  <th class="has-text-centered">MLWNet</th>
-                  <th class="has-text-centered">FPro</th>
-                  <th class="has-text-centered">Diff-Plugin</th>
-                  <th class="has-text-centered has-background-primary-light">Ours</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="8" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RWBI</td>
-                  <td>MANIQA &uarr;</td>
-                  <td>0.501</td>
-                  <td>0.522</td>
-                  <td>0.554</td>
-                  <td>0.494</td>
-                  <td>0.492</td>
-                  <td class="has-text-info has-text-weight-bold">0.565</td>
-                  <td>0.483</td>
-                  <td>0.460</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.635</td>
-                </tr>
-                <tr>
-                  <td>LIQE &uarr;</td>
-                  <td>1.846</td>
-                  <td>2.180</td>
-                  <td>2.875</td>
-                  <td>1.807</td>
-                  <td>2.150</td>
-                  <td class="has-text-info has-text-weight-bold">3.068</td>
-                  <td>1.771</td>
-                  <td>1.371</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.732</td>
-                </tr>
-                <tr>
-                  <td>NRQM &uarr;</td>
-                  <td>5.433</td>
-                  <td>5.608</td>
-                  <td>5.879</td>
-                  <td>5.457</td>
-                  <td>5.079</td>
-                  <td class="has-text-info has-text-weight-bold">6.185</td>
-                  <td>5.474</td>
-                  <td>5.028</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">6.393</td>
-                </tr>
-                <tr>
-                  <td>CLIP-IQA &uarr;</td>
-                  <td>0.257</td>
-                  <td>0.283</td>
-                  <td>0.372</td>
-                  <td>0.256</td>
-                  <td>0.301</td>
-                  <td class="has-text-info has-text-weight-bold">0.424</td>
-                  <td>0.236</td>
-                  <td>0.234</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.474</td>
-                </tr>
-                <tr>
-                  <td>PI &darr;</td>
-                  <td>5.291</td>
-                  <td>5.133</td>
-                  <td>4.993</td>
-                  <td>5.353</td>
-                  <td>5.468</td>
-                  <td class="has-text-danger has-text-weight-bold">4.459</td>
-                  <td>5.182</td>
-                  <td>5.670</td>
-                  <td class="has-text-info has-text-weight-bold has-background-primary-light">4.789</td>
-                </tr>
-                <tr>
-                  <td>BRISQUE &darr;</td>
-                  <td>39.945</td>
-                  <td>39.192</td>
-                  <td>40.674</td>
-                  <td>42.319</td>
-                  <td>43.271</td>
-                  <td class="has-text-info has-text-weight-bold">37.403</td>
-                  <td>39.581</td>
-                  <td>40.488</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">36.625</td>
-                </tr>
-                <tr>
-                  <td>NIQE &darr;</td>
-                  <td>5.682</td>
-                  <td>5.545</td>
-                  <td>5.589</td>
-                  <td>5.831</td>
-                  <td>5.793</td>
-                  <td class="has-text-info has-text-weight-bold">4.886</td>
-                  <td>5.550</td>
-                  <td>5.988</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.796</td>
-                </tr>
-                <tr style="border-bottom: 2px solid #dbdbdb;">
-                  <td>ILNIQE &darr;</td>
-                  <td>40.760</td>
-                  <td>37.569</td>
-                  <td>37.047</td>
-                  <td>41.304</td>
-                  <td>38.705</td>
-                  <td class="has-text-info has-text-weight-bold">34.259</td>
-                  <td>40.208</td>
-                  <td>47.048</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">33.271</td>
-                </tr>
+    <div id="quantitative-carousel" class="carousel results-carousel">
+      
+      <div class="item">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h3 class="title is-4">Quantitative comparison with SOTA deblur models across real-world datasets RWBI and RWBlur400</h3>
+            
+            <div class="content has-text-centered" style="overflow-x: auto;">
+              <div class="table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7-mobile is-size-6-tablet" style="margin: 0 auto;">
+                  <thead>
+                    <tr class="has-background-light">
+                      <th class="has-text-centered" style="vertical-align: middle;">Dataset</th>
+                      <th class="has-text-centered" style="vertical-align: middle;">Metrics</th>
+                      <th class="has-text-centered">Restormer</th>
+                      <th class="has-text-centered">Restormer*</th>
+                      <th class="has-text-centered">HI-Diff</th>
+                      <th class="has-text-centered">DiffIR</th>
+                      <th class="has-text-centered">MISC-Filter</th>
+                      <th class="has-text-centered">MLWNet</th>
+                      <th class="has-text-centered">FPro</th>
+                      <th class="has-text-centered">Diff-Plugin</th>
+                      <th class="has-text-centered has-background-primary-light">Ours</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="8" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RWBI</td>
+                      <td>MANIQA &uarr;</td>
+                      <td>0.501</td>
+                      <td>0.522</td>
+                      <td>0.554</td>
+                      <td>0.494</td>
+                      <td>0.492</td>
+                      <td class="has-text-info has-text-weight-bold">0.565</td>
+                      <td>0.483</td>
+                      <td>0.460</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.635</td>
+                    </tr>
+                    <tr>
+                      <td>LIQE &uarr;</td>
+                      <td>1.846</td>
+                      <td>2.180</td>
+                      <td>2.875</td>
+                      <td>1.807</td>
+                      <td>2.150</td>
+                      <td class="has-text-info has-text-weight-bold">3.068</td>
+                      <td>1.771</td>
+                      <td>1.371</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.732</td>
+                    </tr>
+                    <tr>
+                      <td>NRQM &uarr;</td>
+                      <td>5.433</td>
+                      <td>5.608</td>
+                      <td>5.879</td>
+                      <td>5.457</td>
+                      <td>5.079</td>
+                      <td class="has-text-info has-text-weight-bold">6.185</td>
+                      <td>5.474</td>
+                      <td>5.028</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">6.393</td>
+                    </tr>
+                    <tr>
+                      <td>CLIP-IQA &uarr;</td>
+                      <td>0.257</td>
+                      <td>0.283</td>
+                      <td>0.372</td>
+                      <td>0.256</td>
+                      <td>0.301</td>
+                      <td class="has-text-info has-text-weight-bold">0.424</td>
+                      <td>0.236</td>
+                      <td>0.234</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.474</td>
+                    </tr>
+                    <tr>
+                      <td>PI &darr;</td>
+                      <td>5.291</td>
+                      <td>5.133</td>
+                      <td>4.993</td>
+                      <td>5.353</td>
+                      <td>5.468</td>
+                      <td class="has-text-danger has-text-weight-bold">4.459</td>
+                      <td>5.182</td>
+                      <td>5.670</td>
+                      <td class="has-text-info has-text-weight-bold has-background-primary-light">4.789</td>
+                    </tr>
+                    <tr>
+                      <td>BRISQUE &darr;</td>
+                      <td>39.945</td>
+                      <td>39.192</td>
+                      <td>40.674</td>
+                      <td>42.319</td>
+                      <td>43.271</td>
+                      <td class="has-text-info has-text-weight-bold">37.403</td>
+                      <td>39.581</td>
+                      <td>40.488</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">36.625</td>
+                    </tr>
+                    <tr>
+                      <td>NIQE &darr;</td>
+                      <td>5.682</td>
+                      <td>5.545</td>
+                      <td>5.589</td>
+                      <td>5.831</td>
+                      <td>5.793</td>
+                      <td class="has-text-info has-text-weight-bold">4.886</td>
+                      <td>5.550</td>
+                      <td>5.988</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.796</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid #dbdbdb;">
+                      <td>ILNIQE &darr;</td>
+                      <td>40.760</td>
+                      <td>37.569</td>
+                      <td>37.047</td>
+                      <td>41.304</td>
+                      <td>38.705</td>
+                      <td class="has-text-info has-text-weight-bold">34.259</td>
+                      <td>40.208</td>
+                      <td>47.048</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">33.271</td>
+                    </tr>
 
-                <tr>
-                  <td rowspan="8" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RWBlur400</td>
-                  <td>MANIQA &uarr;</td>
-                  <td>0.509</td>
-                  <td class="has-text-info has-text-weight-bold">0.530</td>
-                  <td>0.490</td>
-                  <td>0.493</td>
-                  <td>0.455</td>
-                  <td>0.517</td>
-                  <td>0.481</td>
-                  <td>0.497</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.604</td>
-                </tr>
-                <tr>
-                  <td>LIQE &uarr;</td>
-                  <td>1.746</td>
-                  <td>1.893</td>
-                  <td>2.041</td>
-                  <td>1.983</td>
-                  <td>1.780</td>
-                  <td class="has-text-info has-text-weight-bold">2.136</td>
-                  <td>1.844</td>
-                  <td>1.808</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">2.390</td>
-                </tr>
-                <tr>
-                  <td>NRQM &uarr;</td>
-                  <td>4.956</td>
-                  <td>5.471</td>
-                  <td>5.411</td>
-                  <td>5.747</td>
-                  <td>4.901</td>
-                  <td>5.736</td>
-                  <td class="has-text-info has-text-weight-bold">5.783</td>
-                  <td>5.660</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">6.746</td>
-                </tr>
-                <tr>
-                  <td>CLIP-IQA &uarr;</td>
-                  <td>0.333</td>
-                  <td>0.352</td>
-                  <td class="has-text-info has-text-weight-bold">0.367</td>
-                  <td>0.339</td>
-                  <td>0.305</td>
-                  <td>0.362</td>
-                  <td>0.313</td>
-                  <td>0.360</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.459</td>
-                </tr>
-                <tr>
-                  <td>PI &darr;</td>
-                  <td>4.788</td>
-                  <td>4.734</td>
-                  <td>4.990</td>
-                  <td>4.578</td>
-                  <td>5.236</td>
-                  <td class="has-text-info has-text-weight-bold">4.461</td>
-                  <td>4.520</td>
-                  <td>4.649</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.786</td>
-                </tr>
-                <tr>
-                  <td>BRISQUE &darr;</td>
-                  <td>41.083</td>
-                  <td>40.620</td>
-                  <td>43.704</td>
-                  <td>34.578</td>
-                  <td>46.365</td>
-                  <td>41.043</td>
-                  <td>31.025</td>
-                  <td class="has-text-info has-text-weight-bold">30.259</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">27.956</td>
-                </tr>
-                <tr>
-                  <td>NIQE &darr;</td>
-                  <td>4.971</td>
-                  <td>4.817</td>
-                  <td>5.229</td>
-                  <td>4.751</td>
-                  <td>5.204</td>
-                  <td class="has-text-danger has-text-weight-bold">4.575</td>
-                  <td>4.609</td>
-                  <td>4.777</td>
-                  <td class="has-text-info has-text-weight-bold has-background-primary-light">4.576</td>
-                </tr>
-                <tr>
-                  <td>ILNIQE &darr;</td>
-                  <td class="has-text-info has-text-weight-bold">31.732</td>
-                  <td>31.796</td>
-                  <td>34.968</td>
-                  <td>32.232</td>
-                  <td>34.699</td>
-                  <td>32.491</td>
-                  <td>32.749</td>
-                  <td>33.989</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">29.809</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="content has-text-justified is-size-7">
-            <p>
-              <strong>Note:</strong> Quantitative comparison with SOTA deblur models across real-world datasets RWBI and RWBlur400. 
-              Higher values are better for &uarr; metrics, lower for &darr;. 
-              Since these datasets lack ground-truth annotations, only no-reference metrics are reported.
-              <span class="has-text-danger has-text-weight-bold">Red</span> indicates the best result, and <span class="has-text-info has-text-weight-bold">Blue</span> indicates the second best.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h3 class="title is-4">Quantitative comparison with state-of-the-art deblurring methods on six widely used benchmarks</h3>
-        
-        <div class="content has-text-centered" style="overflow-x: auto;">
-          <div class="table-container">
-            <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7">
-              <thead>
-                <tr class="has-background-light">
-                  <th class="has-text-centered" style="vertical-align: middle;">Dataset</th>
-                  <th class="has-text-centered" style="vertical-align: middle;">Metrics</th>
-                  <th class="has-text-centered">Restormer*</th>
-                  <th class="has-text-centered">HI-Diff</th>
-                  <th class="has-text-centered">DiffIR</th>
-                  <th class="has-text-centered">MISC-Filter</th>
-                  <th class="has-text-centered">MLWNet</th>
-                  <th class="has-text-centered">FPro</th>
-                  <th class="has-text-centered">Diff-Plugin</th>
-                  <th class="has-text-centered has-background-primary-light">Ours</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">GoPro</td>
-                  <td>PSNR &uarr;</td>
-                  <td>33.07</td>
-                  <td class="has-text-info has-text-weight-bold">33.33</td>
-                  <td>33.20</td>
-                  <td class="has-text-danger has-text-weight-bold">34.10</td>
-                  <td>24.60</td>
-                  <td>33.05</td>
-                  <td>25.64</td>
-                  <td class="has-background-primary-light">25.21</td>
-                </tr>
-                <tr>
-                  <td>SSIM &uarr;</td>
-                  <td>0.943</td>
-                  <td class="has-text-info has-text-weight-bold">0.964</td>
-                  <td>0.963</td>
-                  <td class="has-text-danger has-text-weight-bold">0.969</td>
-                  <td>0.83</td>
-                  <td>0.943</td>
-                  <td>0.793</td>
-                  <td class="has-background-primary-light">0.787</td>
-                </tr>
-                <tr>
-                  <td>MANIQA &uarr;</td>
-                  <td>0.353</td>
-                  <td>0.492</td>
-                  <td class="has-text-info has-text-weight-bold">0.535</td>
-                  <td>0.458</td>
-                  <td>0.497</td>
-                  <td>0.518</td>
-                  <td>0.346</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.538</td>
-                </tr>
-                <tr>
-                  <td>LIQE &uarr;</td>
-                  <td>1.455</td>
-                  <td>1.350</td>
-                  <td class="has-text-danger has-text-weight-bold">1.589</td>
-                  <td>1.172</td>
-                  <td>1.353</td>
-                  <td>1.491</td>
-                  <td>1.092</td>
-                  <td class="has-text-info has-text-weight-bold has-background-primary-light">1.502</td>
-                </tr>
-                <tr>
-                  <td>NRQM &uarr;</td>
-                  <td>4.748</td>
-                  <td>5.047</td>
-                  <td class="has-text-info has-text-weight-bold">5.051</td>
-                  <td>4.339</td>
-                  <td>4.750</td>
-                  <td>4.915</td>
-                  <td>3.886</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.252</td>
-                </tr>
-                <tr>
-                  <td>CLIP-IQA &uarr;</td>
-                  <td>0.243</td>
-                  <td>0.250</td>
-                  <td class="has-text-danger has-text-weight-bold">0.258</td>
-                  <td>0.214</td>
-                  <td class="has-text-info has-text-weight-bold">0.257</td>
-                  <td>0.250</td>
-                  <td>0.190</td>
-                  <td class="has-background-primary-light">0.239</td>
-                </tr>
-                <tr>
-                  <td>PI &darr;</td>
-                  <td>5.308</td>
-                  <td>5.159</td>
-                  <td class="has-text-info has-text-weight-bold">5.135</td>
-                  <td>5.464</td>
-                  <td>5.363</td>
-                  <td>5.151</td>
-                  <td>6.202</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.846</td>
-                </tr>
-                <tr>
-                  <td>BRISQUE &darr;</td>
-                  <td>46.715</td>
-                  <td>46.418</td>
-                  <td>46.721</td>
-                  <td class="has-text-info has-text-weight-bold">46.095</td>
-                  <td>49.638</td>
-                  <td>49.121</td>
-                  <td>51.018</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">39.732</td>
-                </tr>
-                <tr>
-                  <td>NIQE &darr;</td>
-                  <td>5.534</td>
-                  <td>5.504</td>
-                  <td>5.466</td>
-                  <td>5.461</td>
-                  <td>5.650</td>
-                  <td class="has-text-info has-text-weight-bold">5.377</td>
-                  <td>6.146</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.120</td>
-                </tr>
-                <tr style="border-bottom: 2px solid #dbdbdb;">
-                  <td>ILNIQE &darr;</td>
-                  <td>33.354</td>
-                  <td>32.710</td>
-                  <td>33.408</td>
-                  <td>33.071</td>
-                  <td class="has-text-info has-text-weight-bold">32.535</td>
-                  <td>32.701</td>
-                  <td>42.474</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">26.464</td>
-                </tr>
-
-                <tr>
-                  <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">HIDE</td>
-                  <td>PSNR &uarr;</td>
-                  <td class="has-text-danger has-text-weight-bold">31.81</td>
-                  <td>31.46</td>
-                  <td>31.55</td>
-                  <td class="has-text-info has-text-weight-bold">31.66</td>
-                  <td>23.95</td>
-                  <td>30.70</td>
-                  <td>23.95</td>
-                  <td class="has-background-primary-light">24.12</td>
-                </tr>
-                <tr>
-                  <td>SSIM &uarr;</td>
-                  <td>0.933</td>
-                  <td>0.945</td>
-                  <td class="has-text-danger has-text-weight-bold">0.947</td>
-                  <td class="has-text-info has-text-weight-bold">0.946</td>
-                  <td>0.819</td>
-                  <td>0.921</td>
-                  <td>0.763</td>
-                  <td class="has-background-primary-light">0.763</td>
-                </tr>
-                <tr>
-                  <td>MANIQA &uarr;</td>
-                  <td>0.453</td>
-                  <td>0.535</td>
-                  <td class="has-text-danger has-text-weight-bold">0.592</td>
-                  <td>0.498</td>
-                  <td>0.509</td>
-                  <td>0.572</td>
-                  <td>0.362</td>
-                  <td class="has-text-info has-text-weight-bold has-background-primary-light">0.583</td>
-                </tr>
-                <tr>
-                  <td>LIQE &uarr;</td>
-                  <td>1.113</td>
-                  <td>1.621</td>
-                  <td class="has-text-danger has-text-weight-bold">1.977</td>
-                  <td>1.236</td>
-                  <td>1.392</td>
-                  <td class="has-text-info has-text-weight-bold">1.803</td>
-                  <td>1.061</td>
-                  <td class="has-background-primary-light">1.788</td>
-                </tr>
-                <tr>
-                  <td>NRQM &uarr;</td>
-                  <td>3.916</td>
-                  <td>5.613</td>
-                  <td class="has-text-info has-text-weight-bold">6.104</td>
-                  <td>4.731</td>
-                  <td>5.129</td>
-                  <td>6.028</td>
-                  <td>4.323</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">6.210</td>
-                </tr>
-                <tr>
-                  <td>CLIP-IQA &uarr;</td>
-                  <td>0.187</td>
-                  <td class="has-text-danger has-text-weight-bold">0.227</td>
-                  <td class="has-text-danger has-text-weight-bold">0.229</td>
-                  <td>0.179</td>
-                  <td>0.224</td>
-                  <td>0.215</td>
-                  <td>0.158</td>
-                  <td class="has-background-primary-light">0.212</td>
-                </tr>
-                <tr>
-                  <td>PI &darr;</td>
-                  <td>6.302</td>
-                  <td>4.837</td>
-                  <td>4.354</td>
-                  <td>5.278</td>
-                  <td>5.085</td>
-                  <td class="has-text-danger has-text-weight-bold">4.308</td>
-                  <td>5.773</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.244</td>
-                </tr>
-                <tr>
-                  <td>BRISQUE &darr;</td>
-                  <td>52.830</td>
-                  <td>43.605</td>
-                  <td>41.045</td>
-                  <td>45.919</td>
-                  <td>48.277</td>
-                  <td>42.970</td>
-                  <td class="has-text-info has-text-weight-bold">40.716</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">36.687</td>
-                </tr>
-                <tr>
-                  <td>NIQE &darr;</td>
-                  <td>6.558</td>
-                  <td>5.254</td>
-                  <td>4.803</td>
-                  <td>5.318</td>
-                  <td>5.348</td>
-                  <td class="has-text-danger has-text-weight-bold">4.624</td>
-                  <td>5.528</td>
-                  <td class="has-text-info has-text-weight-bold has-background-primary-light">4.673</td>
-                </tr>
-                <tr style="border-bottom: 2px solid #dbdbdb;">
-                  <td>ILNIQE &darr;</td>
-                  <td>36.248</td>
-                  <td>31.246</td>
-                  <td>29.788</td>
-                  <td>29.985</td>
-                  <td>30.702</td>
-                  <td class="has-text-info has-text-weight-bold">28.224</td>
-                  <td>40.744</td>
-                  <td class="has-text-danger has-text-weight-bold has-background-primary-light">24.176</td>
-                </tr>
-
-                 <tr>
-                    <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">REDS</td>
-                    <td>PSNR &uarr;</td>
-                    <td class="has-text-danger has-text-weight-bold">34.207</td>
-                    <td>25.760</td>
-                    <td>26.78</td>
-                    <td>27.58</td>
-                    <td class="has-text-info has-text-weight-bold">27.60</td>
-                    <td>26.96</td>
-                    <td>26.27</td>
-                    <td class="has-background-primary-light">26.21</td>
-                  </tr>
-                  <tr>
-                    <td>SSIM &uarr;</td>
-                    <td class="has-text-danger has-text-weight-bold">0.938</td>
-                    <td>0.779</td>
-                    <td>0.819</td>
-                    <td>0.832</td>
-                    <td class="has-text-info has-text-weight-bold">0.851</td>
-                    <td>0.840</td>
-                    <td>0.771</td>
-                    <td class="has-background-primary-light">0.770</td>
-                  </tr>
-                  <tr>
-                    <td>MANIQA &uarr;</td>
-                    <td>0.536</td>
-                    <td>0.630</td>
-                    <td>0.626</td>
-                    <td>0.607</td>
-                    <td class="has-text-danger has-text-weight-bold">0.647</td>
-                    <td>0.613</td>
-                    <td>0.518</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">0.642</td>
-                  </tr>
-                  <tr>
-                    <td>LIQE &uarr;</td>
-                    <td>1.435</td>
-                    <td>2.530</td>
-                    <td>2.293</td>
-                    <td>2.065</td>
-                    <td class="has-text-danger has-text-weight-bold">2.664</td>
-                    <td>2.097</td>
-                    <td>1.520</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">2.570</td>
-                  </tr>
-                  <tr>
-                    <td>NRQM &uarr;</td>
-                    <td>4.886</td>
-                    <td>6.849</td>
-                    <td class="has-text-info has-text-weight-bold">7.014</td>
-                    <td>6.541</td>
-                    <td>6.954</td>
-                    <td>6.809</td>
-                    <td>6.384</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">7.352</td>
-                  </tr>
-                  <tr>
-                    <td>CLIP-IQA &uarr;</td>
-                    <td>0.271</td>
-                    <td>0.305</td>
-                    <td>0.287</td>
-                    <td>0.268</td>
-                    <td class="has-text-info has-text-weight-bold">0.322</td>
-                    <td>0.269</td>
-                    <td>0.228</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.351</td>
-                  </tr>
-                  <tr>
-                    <td>PI &darr;</td>
-                    <td>5.335</td>
-                    <td>3.379</td>
-                    <td>3.391</td>
-                    <td>3.546</td>
-                    <td class="has-text-info has-text-weight-bold">3.293</td>
-                    <td>3.481</td>
-                    <td>4.160</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.035</td>
-                  </tr>
-                  <tr>
-                    <td>BRISQUE &darr;</td>
-                    <td>43.364</td>
-                    <td>28.061</td>
-                    <td class="has-text-info has-text-weight-bold">26.452</td>
-                    <td>30.115</td>
-                    <td>31.448</td>
-                    <td>28.533</td>
-                    <td>27.867</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">25.695</td>
-                  </tr>
-                  <tr>
-                    <td>NIQE &darr;</td>
-                    <td>5.660</td>
-                    <td>3.899</td>
-                    <td>3.973</td>
-                    <td>3.894</td>
-                    <td class="has-text-info has-text-weight-bold">3.851</td>
-                    <td>3.966</td>
-                    <td>4.620</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.694</td>
-                  </tr>
-                  <tr style="border-bottom: 2px solid #dbdbdb;">
-                    <td>ILNIQE &darr;</td>
-                    <td>29.305</td>
-                    <td>23.784</td>
-                    <td>23.269</td>
-                    <td>23.083</td>
-                    <td class="has-text-info has-text-weight-bold">22.369</td>
-                    <td>23.236</td>
-                    <td>27.088</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">19.357</td>
-                  </tr>
-
-                  <tr>
-                    <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RealBlur-J</td>
-                    <td>PSNR &uarr;</td>
-                    <td>31.131</td>
-                    <td>29.15</td>
-                    <td>25.37</td>
-                    <td class="has-text-danger has-text-weight-bold">33.88</td>
-                    <td class="has-text-info has-text-weight-bold">33.84</td>
-                    <td>27.90</td>
-                    <td>26.25</td>
-                    <td class="has-background-primary-light">27.55</td>
-                  </tr>
-                  <tr>
-                    <td>SSIM &uarr;</td>
-                    <td>0.917</td>
-                    <td>0.890</td>
-                    <td>0.825</td>
-                    <td class="has-text-info has-text-weight-bold">0.938</td>
-                    <td class="has-text-danger has-text-weight-bold">0.941</td>
-                    <td>0.873</td>
-                    <td>0.79</td>
-                    <td class="has-background-primary-light">0.811</td>
-                  </tr>
-                  <tr>
-                    <td>MANIQA &uarr;</td>
-                    <td>0.472</td>
-                    <td class="has-text-danger has-text-weight-bold">0.629</td>
-                    <td>0.571</td>
-                    <td>0.602</td>
-                    <td class="has-text-info has-text-weight-bold">0.615</td>
-                    <td>0.544</td>
-                    <td>0.467</td>
-                    <td class="has-background-primary-light">0.613</td>
-                  </tr>
-                  <tr>
-                    <td>LIQE &uarr;</td>
-                    <td>2.356</td>
-                    <td class="has-text-danger has-text-weight-bold">2.646</td>
-                    <td>1.949</td>
-                    <td>2.386</td>
-                    <td class="has-text-info has-text-weight-bold">2.578</td>
-                    <td>1.735</td>
-                    <td>1.243</td>
-                    <td class="has-background-primary-light">2.439</td>
-                  </tr>
-                  <tr>
-                    <td>NRQM &uarr;</td>
-                    <td>5.150</td>
-                    <td class="has-text-danger has-text-weight-bold">5.870</td>
-                    <td>5.517</td>
-                    <td>5.365</td>
-                    <td class="has-text-info has-text-weight-bold">5.685</td>
-                    <td>5.361</td>
-                    <td>4.283</td>
-                    <td class="has-background-primary-light">5.633</td>
-                  </tr>
-                  <tr>
-                    <td>CLIP-IQA &uarr;</td>
-                    <td>0.262</td>
-                    <td class="has-text-danger has-text-weight-bold">0.279</td>
-                    <td>0.247</td>
-                    <td>0.251</td>
-                    <td class="has-text-info has-text-weight-bold">0.274</td>
-                    <td>0.212</td>
-                    <td>0.208</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">0.274</td>
-                  </tr>
-                  <tr>
-                    <td>PI &darr;</td>
-                    <td>5.235</td>
-                    <td class="has-text-danger has-text-weight-bold">4.651</td>
-                    <td>4.934</td>
-                    <td>5.011</td>
-                    <td>4.869</td>
-                    <td>5.013</td>
-                    <td>5.965</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">4.787</td>
-                  </tr>
-                  <tr>
-                    <td>BRISQUE &darr;</td>
-                    <td>49.636</td>
-                    <td>46.799</td>
-                    <td class="has-text-danger has-text-weight-bold">40.207</td>
-                    <td>46.610</td>
-                    <td>48.970</td>
-                    <td>42.742</td>
-                    <td>42.401</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">35.895</td>
-                  </tr>
-                  <tr>
-                    <td>NIQE &darr;</td>
-                    <td>5.708</td>
-                    <td class="has-text-info has-text-weight-bold">5.182</td>
-                    <td>5.258</td>
-                    <td>5.341</td>
-                    <td>5.370</td>
-                    <td>5.256</td>
-                    <td>5.963</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.128</td>
-                  </tr>
-                  <tr style="border-bottom: 2px solid #dbdbdb;">
-                    <td>ILNIQE &darr;</td>
-                    <td>34.999</td>
-                    <td>33.380</td>
-                    <td class="has-text-info has-text-weight-bold">31.848</td>
-                    <td>34.550</td>
-                    <td>33.588</td>
-                    <td>32.580</td>
-                    <td>37.317</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">27.548</td>
-                  </tr>
-
-                  <tr>
-                    <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">BSD</td>
-                    <td>PSNR &uarr;</td>
-                    <td class="has-text-danger has-text-weight-bold">30.410</td>
-                    <td>28.66</td>
-                    <td>27.97</td>
-                    <td>29.53</td>
-                    <td>28.82</td>
-                    <td>26.64</td>
-                    <td>27.67</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">29.56</td>
-                  </tr>
-                  <tr>
-                    <td>SSIM &uarr;</td>
-                    <td class="has-text-danger has-text-weight-bold">0.923</td>
-                    <td>0.907</td>
-                    <td>0.885</td>
-                    <td class="has-text-danger has-text-weight-bold">0.923</td>
-                    <td class="has-text-info has-text-weight-bold">0.910</td>
-                    <td>0.885</td>
-                    <td>0.862</td>
-                    <td class="has-background-primary-light">0.893</td>
-                  </tr>
-                  <tr>
-                    <td>MANIQA &uarr;</td>
-                    <td class="has-text-danger has-text-weight-bold">0.571</td>
-                    <td>0.565</td>
-                    <td>0.362</td>
-                    <td>0.510</td>
-                    <td>0.536</td>
-                    <td>0.461</td>
-                    <td>0.427</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">0.568</td>
-                  </tr>
-                  <tr>
-                    <td>LIQE &uarr;</td>
-                    <td>2.325</td>
-                    <td class="has-text-danger has-text-weight-bold">2.452</td>
-                    <td>1.048</td>
-                    <td>1.742</td>
-                    <td>2.132</td>
-                    <td>1.479</td>
-                    <td>1.296</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">2.348</td>
-                  </tr>
-                  <tr>
-                    <td>NRQM &uarr;</td>
-                    <td>4.927</td>
-                    <td class="has-text-danger has-text-weight-bold">5.806</td>
-                    <td>4.634</td>
-                    <td>4.772</td>
-                    <td class="has-text-info has-text-weight-bold">5.229</td>
-                    <td>5.141</td>
-                    <td>4.433</td>
-                    <td class="has-background-primary-light">5.096</td>
-                  </tr>
-                  <tr>
-                    <td>CLIP-IQA &uarr;</td>
-                    <td>0.279</td>
-                    <td class="has-text-danger has-text-weight-bold">0.283</td>
-                    <td>0.188</td>
-                    <td>0.234</td>
-                    <td>0.264</td>
-                    <td>0.179</td>
-                    <td>0.195</td>
-                    <td class="has-text-info has-text-weight-bold has-background-primary-light">0.282</td>
-                  </tr>
-                  <tr>
-                    <td>PI &darr;</td>
-                    <td>5.800</td>
-                    <td class="has-text-danger has-text-weight-bold">5.189</td>
-                    <td>6.100</td>
-                    <td>5.819</td>
-                    <td class="has-text-info has-text-weight-bold">5.560</td>
-                    <td>5.934</td>
-                    <td>6.422</td>
-                    <td class="has-background-primary-light">5.589</td>
-                  </tr>
-                  <tr>
-                    <td>BRISQUE &darr;</td>
-                    <td>47.363</td>
-                    <td>39.518</td>
-                    <td class="has-text-danger has-text-weight-bold">24.113</td>
-                    <td>46.358</td>
-                    <td>46.388</td>
-                    <td class="has-text-info has-text-weight-bold">29.108</td>
-                    <td>36.347</td>
-                    <td class="has-background-primary-light">40.514</td>
-                  </tr>
-                  <tr>
-                    <td>NIQE &darr;</td>
-                    <td>5.799</td>
-                    <td class="has-text-info has-text-weight-bold">5.464</td>
-                    <td>6.469</td>
-                    <td>5.758</td>
-                    <td>5.721</td>
-                    <td>5.881</td>
-                    <td>6.569</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.455</td>
-                  </tr>
-                  <tr style="border-bottom: 2px solid #dbdbdb;">
-                    <td>ILNIQE &darr;</td>
-                    <td>42.040</td>
-                    <td>38.708</td>
-                    <td class="has-text-danger has-text-weight-bold">31.513</td>
-                    <td>41.328</td>
-                    <td>40.506</td>
-                    <td class="has-text-info has-text-weight-bold">37.435</td>
-                    <td>50.182</td>
-                    <td class="has-background-primary-light">39.383</td>
-                  </tr>
-
-                  <tr>
-                    <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RSBlur</td>
-                    <td>PSNR &uarr;</td>
-                    <td>29.27</td>
-                    <td>29.47</td>
-                    <td>22.48</td>
-                    <td class="has-text-info has-text-weight-bold">29.98</td>
-                    <td class="has-text-danger has-text-weight-bold">30.91</td>
-                    <td>26.19</td>
-                    <td>27.82</td>
-                    <td class="has-background-primary-light">28.85</td>
-                  </tr>
-                  <tr>
-                    <td>SSIM &uarr;</td>
-                    <td>0.864</td>
-                    <td class="has-text-info has-text-weight-bold">0.875</td>
-                    <td>0.651</td>
-                    <td class="has-text-danger has-text-weight-bold">0.887</td>
-                    <td>0.818</td>
-                    <td>0.833</td>
-                    <td>0.821</td>
-                    <td class="has-background-primary-light">0.820</td>
-                  </tr>
-                  <tr>
-                    <td>MANIQA &uarr;</td>
-                    <td>0.442</td>
-                    <td class="has-text-info has-text-weight-bold">0.452</td>
-                    <td>0.362</td>
-                    <td>0.420</td>
-                    <td>0.415</td>
-                    <td>0.398</td>
-                    <td>0.441</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.533</td>
-                  </tr>
-                  <tr>
-                    <td>LIQE &uarr;</td>
-                    <td class="has-text-info has-text-weight-bold">1.342</td>
-                    <td>1.124</td>
-                    <td>1.048</td>
-                    <td>1.069</td>
-                    <td>1.111</td>
-                    <td>1.018</td>
-                    <td>1.015</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">1.404</td>
-                  </tr>
-                  <tr>
-                    <td>NRQM &uarr;</td>
-                    <td>3.769</td>
-                    <td>3.817</td>
-                    <td>4.634</td>
-                    <td>3.523</td>
-                    <td>3.642</td>
-                    <td class="has-text-info has-text-weight-bold">5.520</td>
-                    <td>4.357</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.597</td>
-                  </tr>
-                  <tr>
-                    <td>CLIP-IQA &uarr;</td>
-                    <td class="has-text-danger has-text-weight-bold">0.262</td>
-                    <td>0.246</td>
-                    <td>0.188</td>
-                    <td>0.204</td>
-                    <td class="has-text-info has-text-weight-bold">0.248</td>
-                    <td>0.170</td>
-                    <td>0.169</td>
-                    <td class="has-background-primary-light">0.236</td>
-                  </tr>
-                  <tr>
-                    <td>PI &darr;</td>
-                    <td>6.427</td>
-                    <td>6.851</td>
-                    <td class="has-text-info has-text-weight-bold">6.100</td>
-                    <td>6.820</td>
-                    <td>7.065</td>
-                    <td>6.296</td>
-                    <td>6.677</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.980</td>
-                  </tr>
-                  <tr>
-                    <td>BRISQUE &darr;</td>
-                    <td>52.768</td>
-                    <td>50.286</td>
-                    <td class="has-text-info has-text-weight-bold">24.113</td>
-                    <td>54.119</td>
-                    <td>58.433</td>
-                    <td>39.250</td>
-                    <td class="has-text-danger has-text-weight-bold">21.942</td>
-                    <td class="has-background-primary-light">30.677</td>
-                  </tr>
-                  <tr>
-                    <td>NIQE &darr;</td>
-                    <td>6.522</td>
-                    <td>7.348</td>
-                    <td class="has-text-info has-text-weight-bold">6.469</td>
-                    <td>6.943</td>
-                    <td>7.532</td>
-                    <td>7.533</td>
-                    <td>6.840</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.292</td>
-                  </tr>
-                  <tr>
-                    <td>ILNIQE &darr;</td>
-                    <td>32.349</td>
-                    <td>37.794</td>
-                    <td class="has-text-info has-text-weight-bold">31.513</td>
-                    <td>36.354</td>
-                    <td>39.651</td>
-                    <td>36.035</td>
-                    <td>41.705</td>
-                    <td class="has-text-danger has-text-weight-bold has-background-primary-light">25.833</td>
-                  </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="content has-text-justified is-size-7">
-            <p>
-              <strong>Note:</strong> Quantitative comparison with state-of-the-art deblurring methods on six widely used benchmarks. Higher values indicate better performance for &uarr; metrics, and lower values for &darr;. <span class="has-text-danger has-text-weight-bold">Red</span> indicates the best result, and <span class="has-text-info has-text-weight-bold">Blue</span> indicates the second best.
-            </p>
+                    <tr>
+                      <td rowspan="8" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RWBlur400</td>
+                      <td>MANIQA &uarr;</td>
+                      <td>0.509</td>
+                      <td class="has-text-info has-text-weight-bold">0.530</td>
+                      <td>0.490</td>
+                      <td>0.493</td>
+                      <td>0.455</td>
+                      <td>0.517</td>
+                      <td>0.481</td>
+                      <td>0.497</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.604</td>
+                    </tr>
+                    <tr>
+                      <td>LIQE &uarr;</td>
+                      <td>1.746</td>
+                      <td>1.893</td>
+                      <td>2.041</td>
+                      <td>1.983</td>
+                      <td>1.780</td>
+                      <td class="has-text-info has-text-weight-bold">2.136</td>
+                      <td>1.844</td>
+                      <td>1.808</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">2.390</td>
+                    </tr>
+                    <tr>
+                      <td>NRQM &uarr;</td>
+                      <td>4.956</td>
+                      <td>5.471</td>
+                      <td>5.411</td>
+                      <td>5.747</td>
+                      <td>4.901</td>
+                      <td>5.736</td>
+                      <td class="has-text-info has-text-weight-bold">5.783</td>
+                      <td>5.660</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">6.746</td>
+                    </tr>
+                    <tr>
+                      <td>CLIP-IQA &uarr;</td>
+                      <td>0.333</td>
+                      <td>0.352</td>
+                      <td class="has-text-info has-text-weight-bold">0.367</td>
+                      <td>0.339</td>
+                      <td>0.305</td>
+                      <td>0.362</td>
+                      <td>0.313</td>
+                      <td>0.360</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.459</td>
+                    </tr>
+                    <tr>
+                      <td>PI &darr;</td>
+                      <td>4.788</td>
+                      <td>4.734</td>
+                      <td>4.990</td>
+                      <td>4.578</td>
+                      <td>5.236</td>
+                      <td class="has-text-info has-text-weight-bold">4.461</td>
+                      <td>4.520</td>
+                      <td>4.649</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.786</td>
+                    </tr>
+                    <tr>
+                      <td>BRISQUE &darr;</td>
+                      <td>41.083</td>
+                      <td>40.620</td>
+                      <td>43.704</td>
+                      <td>34.578</td>
+                      <td>46.365</td>
+                      <td>41.043</td>
+                      <td>31.025</td>
+                      <td class="has-text-info has-text-weight-bold">30.259</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">27.956</td>
+                    </tr>
+                    <tr>
+                      <td>NIQE &darr;</td>
+                      <td>4.971</td>
+                      <td>4.817</td>
+                      <td>5.229</td>
+                      <td>4.751</td>
+                      <td>5.204</td>
+                      <td class="has-text-danger has-text-weight-bold">4.575</td>
+                      <td>4.609</td>
+                      <td>4.777</td>
+                      <td class="has-text-info has-text-weight-bold has-background-primary-light">4.576</td>
+                    </tr>
+                    <tr>
+                      <td>ILNIQE &darr;</td>
+                      <td class="has-text-info has-text-weight-bold">31.732</td>
+                      <td>31.796</td>
+                      <td>34.968</td>
+                      <td>32.232</td>
+                      <td>34.699</td>
+                      <td>32.491</td>
+                      <td>32.749</td>
+                      <td>33.989</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">29.809</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="content has-text-justified is-size-7" style="max-width: 90%; margin: 10px auto;">
+                <p>
+                  <strong>Note:</strong> Quantitative comparison with SOTA deblur models across real-world datasets RWBI and RWBlur400. 
+                  Higher values are better for &uarr; metrics, lower for &darr;. 
+                  Since these datasets lack ground-truth annotations, only no-reference metrics are reported.
+                  <span class="has-text-danger has-text-weight-bold">Red</span> indicates the best result, and <span class="has-text-info has-text-weight-bold">Blue</span> indicates the second best.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
+
+      <div class="item">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h3 class="title is-4">Quantitative comparison with state-of-the-art deblurring methods on six widely used benchmarks</h3>
+            
+            <div class="content has-text-centered" style="overflow-x: auto;">
+              <div class="table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7" style="margin: 0 auto;">
+                  <thead>
+                    <tr class="has-background-light">
+                      <th class="has-text-centered" style="vertical-align: middle;">Dataset</th>
+                      <th class="has-text-centered" style="vertical-align: middle;">Metrics</th>
+                      <th class="has-text-centered">Restormer*</th>
+                      <th class="has-text-centered">HI-Diff</th>
+                      <th class="has-text-centered">DiffIR</th>
+                      <th class="has-text-centered">MISC-Filter</th>
+                      <th class="has-text-centered">MLWNet</th>
+                      <th class="has-text-centered">FPro</th>
+                      <th class="has-text-centered">Diff-Plugin</th>
+                      <th class="has-text-centered has-background-primary-light">Ours</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">GoPro</td>
+                      <td>PSNR &uarr;</td>
+                      <td>33.07</td>
+                      <td class="has-text-info has-text-weight-bold">33.33</td>
+                      <td>33.20</td>
+                      <td class="has-text-danger has-text-weight-bold">34.10</td>
+                      <td>24.60</td>
+                      <td>33.05</td>
+                      <td>25.64</td>
+                      <td class="has-background-primary-light">25.21</td>
+                    </tr>
+                    <tr>
+                      <td>SSIM &uarr;</td>
+                      <td>0.943</td>
+                      <td class="has-text-info has-text-weight-bold">0.964</td>
+                      <td>0.963</td>
+                      <td class="has-text-danger has-text-weight-bold">0.969</td>
+                      <td>0.83</td>
+                      <td>0.943</td>
+                      <td>0.793</td>
+                      <td class="has-background-primary-light">0.787</td>
+                    </tr>
+                    <tr>
+                      <td>MANIQA &uarr;</td>
+                      <td>0.353</td>
+                      <td>0.492</td>
+                      <td class="has-text-info has-text-weight-bold">0.535</td>
+                      <td>0.458</td>
+                      <td>0.497</td>
+                      <td>0.518</td>
+                      <td>0.346</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.538</td>
+                    </tr>
+                    <tr>
+                      <td>LIQE &uarr;</td>
+                      <td>1.455</td>
+                      <td>1.350</td>
+                      <td class="has-text-danger has-text-weight-bold">1.589</td>
+                      <td>1.172</td>
+                      <td>1.353</td>
+                      <td>1.491</td>
+                      <td>1.092</td>
+                      <td class="has-text-info has-text-weight-bold has-background-primary-light">1.502</td>
+                    </tr>
+                    <tr>
+                      <td>NRQM &uarr;</td>
+                      <td>4.748</td>
+                      <td>5.047</td>
+                      <td class="has-text-info has-text-weight-bold">5.051</td>
+                      <td>4.339</td>
+                      <td>4.750</td>
+                      <td>4.915</td>
+                      <td>3.886</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.252</td>
+                    </tr>
+                    <tr>
+                      <td>CLIP-IQA &uarr;</td>
+                      <td>0.243</td>
+                      <td>0.250</td>
+                      <td class="has-text-danger has-text-weight-bold">0.258</td>
+                      <td>0.214</td>
+                      <td class="has-text-info has-text-weight-bold">0.257</td>
+                      <td>0.250</td>
+                      <td>0.190</td>
+                      <td class="has-background-primary-light">0.239</td>
+                    </tr>
+                    <tr>
+                      <td>PI &darr;</td>
+                      <td>5.308</td>
+                      <td>5.159</td>
+                      <td class="has-text-info has-text-weight-bold">5.135</td>
+                      <td>5.464</td>
+                      <td>5.363</td>
+                      <td>5.151</td>
+                      <td>6.202</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.846</td>
+                    </tr>
+                    <tr>
+                      <td>BRISQUE &darr;</td>
+                      <td>46.715</td>
+                      <td>46.418</td>
+                      <td>46.721</td>
+                      <td class="has-text-info has-text-weight-bold">46.095</td>
+                      <td>49.638</td>
+                      <td>49.121</td>
+                      <td>51.018</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">39.732</td>
+                    </tr>
+                    <tr>
+                      <td>NIQE &darr;</td>
+                      <td>5.534</td>
+                      <td>5.504</td>
+                      <td>5.466</td>
+                      <td>5.461</td>
+                      <td>5.650</td>
+                      <td class="has-text-info has-text-weight-bold">5.377</td>
+                      <td>6.146</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.120</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid #dbdbdb;">
+                      <td>ILNIQE &darr;</td>
+                      <td>33.354</td>
+                      <td>32.710</td>
+                      <td>33.408</td>
+                      <td>33.071</td>
+                      <td class="has-text-info has-text-weight-bold">32.535</td>
+                      <td>32.701</td>
+                      <td>42.474</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">26.464</td>
+                    </tr>
+
+                    <tr>
+                      <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">HIDE</td>
+                      <td>PSNR &uarr;</td>
+                      <td class="has-text-danger has-text-weight-bold">31.81</td>
+                      <td>31.46</td>
+                      <td>31.55</td>
+                      <td class="has-text-info has-text-weight-bold">31.66</td>
+                      <td>23.95</td>
+                      <td>30.70</td>
+                      <td>23.95</td>
+                      <td class="has-background-primary-light">24.12</td>
+                    </tr>
+                    <tr>
+                      <td>SSIM &uarr;</td>
+                      <td>0.933</td>
+                      <td>0.945</td>
+                      <td class="has-text-danger has-text-weight-bold">0.947</td>
+                      <td class="has-text-info has-text-weight-bold">0.946</td>
+                      <td>0.819</td>
+                      <td>0.921</td>
+                      <td>0.763</td>
+                      <td class="has-background-primary-light">0.763</td>
+                    </tr>
+                    <tr>
+                      <td>MANIQA &uarr;</td>
+                      <td>0.453</td>
+                      <td>0.535</td>
+                      <td class="has-text-danger has-text-weight-bold">0.592</td>
+                      <td>0.498</td>
+                      <td>0.509</td>
+                      <td>0.572</td>
+                      <td>0.362</td>
+                      <td class="has-text-info has-text-weight-bold has-background-primary-light">0.583</td>
+                    </tr>
+                    <tr>
+                      <td>LIQE &uarr;</td>
+                      <td>1.113</td>
+                      <td>1.621</td>
+                      <td class="has-text-danger has-text-weight-bold">1.977</td>
+                      <td>1.236</td>
+                      <td>1.392</td>
+                      <td class="has-text-info has-text-weight-bold">1.803</td>
+                      <td>1.061</td>
+                      <td class="has-background-primary-light">1.788</td>
+                    </tr>
+                    <tr>
+                      <td>NRQM &uarr;</td>
+                      <td>3.916</td>
+                      <td>5.613</td>
+                      <td class="has-text-info has-text-weight-bold">6.104</td>
+                      <td>4.731</td>
+                      <td>5.129</td>
+                      <td>6.028</td>
+                      <td>4.323</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">6.210</td>
+                    </tr>
+                    <tr>
+                      <td>CLIP-IQA &uarr;</td>
+                      <td>0.187</td>
+                      <td class="has-text-danger has-text-weight-bold">0.227</td>
+                      <td class="has-text-danger has-text-weight-bold">0.229</td>
+                      <td>0.179</td>
+                      <td>0.224</td>
+                      <td>0.215</td>
+                      <td>0.158</td>
+                      <td class="has-background-primary-light">0.212</td>
+                    </tr>
+                    <tr>
+                      <td>PI &darr;</td>
+                      <td>6.302</td>
+                      <td>4.837</td>
+                      <td>4.354</td>
+                      <td>5.278</td>
+                      <td>5.085</td>
+                      <td class="has-text-danger has-text-weight-bold">4.308</td>
+                      <td>5.773</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.244</td>
+                    </tr>
+                    <tr>
+                      <td>BRISQUE &darr;</td>
+                      <td>52.830</td>
+                      <td>43.605</td>
+                      <td>41.045</td>
+                      <td>45.919</td>
+                      <td>48.277</td>
+                      <td>42.970</td>
+                      <td class="has-text-info has-text-weight-bold">40.716</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">36.687</td>
+                    </tr>
+                    <tr>
+                      <td>NIQE &darr;</td>
+                      <td>6.558</td>
+                      <td>5.254</td>
+                      <td>4.803</td>
+                      <td>5.318</td>
+                      <td>5.348</td>
+                      <td class="has-text-danger has-text-weight-bold">4.624</td>
+                      <td>5.528</td>
+                      <td class="has-text-info has-text-weight-bold has-background-primary-light">4.673</td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid #dbdbdb;">
+                      <td>ILNIQE &darr;</td>
+                      <td>36.248</td>
+                      <td>31.246</td>
+                      <td>29.788</td>
+                      <td>29.985</td>
+                      <td>30.702</td>
+                      <td class="has-text-info has-text-weight-bold">28.224</td>
+                      <td>40.744</td>
+                      <td class="has-text-danger has-text-weight-bold has-background-primary-light">24.176</td>
+                    </tr>
+
+                     <tr>
+                        <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">REDS</td>
+                        <td>PSNR &uarr;</td>
+                        <td class="has-text-danger has-text-weight-bold">34.207</td>
+                        <td>25.760</td>
+                        <td>26.78</td>
+                        <td>27.58</td>
+                        <td class="has-text-info has-text-weight-bold">27.60</td>
+                        <td>26.96</td>
+                        <td>26.27</td>
+                        <td class="has-background-primary-light">26.21</td>
+                      </tr>
+                      <tr>
+                        <td>SSIM &uarr;</td>
+                        <td class="has-text-danger has-text-weight-bold">0.938</td>
+                        <td>0.779</td>
+                        <td>0.819</td>
+                        <td>0.832</td>
+                        <td class="has-text-info has-text-weight-bold">0.851</td>
+                        <td>0.840</td>
+                        <td>0.771</td>
+                        <td class="has-background-primary-light">0.770</td>
+                      </tr>
+                      <tr>
+                        <td>MANIQA &uarr;</td>
+                        <td>0.536</td>
+                        <td>0.630</td>
+                        <td>0.626</td>
+                        <td>0.607</td>
+                        <td class="has-text-danger has-text-weight-bold">0.647</td>
+                        <td>0.613</td>
+                        <td>0.518</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">0.642</td>
+                      </tr>
+                      <tr>
+                        <td>LIQE &uarr;</td>
+                        <td>1.435</td>
+                        <td>2.530</td>
+                        <td>2.293</td>
+                        <td>2.065</td>
+                        <td class="has-text-danger has-text-weight-bold">2.664</td>
+                        <td>2.097</td>
+                        <td>1.520</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">2.570</td>
+                      </tr>
+                      <tr>
+                        <td>NRQM &uarr;</td>
+                        <td>4.886</td>
+                        <td>6.849</td>
+                        <td class="has-text-info has-text-weight-bold">7.014</td>
+                        <td>6.541</td>
+                        <td>6.954</td>
+                        <td>6.809</td>
+                        <td>6.384</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">7.352</td>
+                      </tr>
+                      <tr>
+                        <td>CLIP-IQA &uarr;</td>
+                        <td>0.271</td>
+                        <td>0.305</td>
+                        <td>0.287</td>
+                        <td>0.268</td>
+                        <td class="has-text-info has-text-weight-bold">0.322</td>
+                        <td>0.269</td>
+                        <td>0.228</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.351</td>
+                      </tr>
+                      <tr>
+                        <td>PI &darr;</td>
+                        <td>5.335</td>
+                        <td>3.379</td>
+                        <td>3.391</td>
+                        <td>3.546</td>
+                        <td class="has-text-info has-text-weight-bold">3.293</td>
+                        <td>3.481</td>
+                        <td>4.160</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.035</td>
+                      </tr>
+                      <tr>
+                        <td>BRISQUE &darr;</td>
+                        <td>43.364</td>
+                        <td>28.061</td>
+                        <td class="has-text-info has-text-weight-bold">26.452</td>
+                        <td>30.115</td>
+                        <td>31.448</td>
+                        <td>28.533</td>
+                        <td>27.867</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">25.695</td>
+                      </tr>
+                      <tr>
+                        <td>NIQE &darr;</td>
+                        <td>5.660</td>
+                        <td>3.899</td>
+                        <td>3.973</td>
+                        <td>3.894</td>
+                        <td class="has-text-info has-text-weight-bold">3.851</td>
+                        <td>3.966</td>
+                        <td>4.620</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">3.694</td>
+                      </tr>
+                      <tr style="border-bottom: 2px solid #dbdbdb;">
+                        <td>ILNIQE &darr;</td>
+                        <td>29.305</td>
+                        <td>23.784</td>
+                        <td>23.269</td>
+                        <td>23.083</td>
+                        <td class="has-text-info has-text-weight-bold">22.369</td>
+                        <td>23.236</td>
+                        <td>27.088</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">19.357</td>
+                      </tr>
+
+                      <tr>
+                        <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RealBlur-J</td>
+                        <td>PSNR &uarr;</td>
+                        <td>31.131</td>
+                        <td>29.15</td>
+                        <td>25.37</td>
+                        <td class="has-text-danger has-text-weight-bold">33.88</td>
+                        <td class="has-text-info has-text-weight-bold">33.84</td>
+                        <td>27.90</td>
+                        <td>26.25</td>
+                        <td class="has-background-primary-light">27.55</td>
+                      </tr>
+                      <tr>
+                        <td>SSIM &uarr;</td>
+                        <td>0.917</td>
+                        <td>0.890</td>
+                        <td>0.825</td>
+                        <td class="has-text-info has-text-weight-bold">0.938</td>
+                        <td class="has-text-danger has-text-weight-bold">0.941</td>
+                        <td>0.873</td>
+                        <td>0.79</td>
+                        <td class="has-background-primary-light">0.811</td>
+                      </tr>
+                      <tr>
+                        <td>MANIQA &uarr;</td>
+                        <td>0.472</td>
+                        <td class="has-text-danger has-text-weight-bold">0.629</td>
+                        <td>0.571</td>
+                        <td>0.602</td>
+                        <td class="has-text-info has-text-weight-bold">0.615</td>
+                        <td>0.544</td>
+                        <td>0.467</td>
+                        <td class="has-background-primary-light">0.613</td>
+                      </tr>
+                      <tr>
+                        <td>LIQE &uarr;</td>
+                        <td>2.356</td>
+                        <td class="has-text-danger has-text-weight-bold">2.646</td>
+                        <td>1.949</td>
+                        <td>2.386</td>
+                        <td class="has-text-info has-text-weight-bold">2.578</td>
+                        <td>1.735</td>
+                        <td>1.243</td>
+                        <td class="has-background-primary-light">2.439</td>
+                      </tr>
+                      <tr>
+                        <td>NRQM &uarr;</td>
+                        <td>5.150</td>
+                        <td class="has-text-danger has-text-weight-bold">5.870</td>
+                        <td>5.517</td>
+                        <td>5.365</td>
+                        <td class="has-text-info has-text-weight-bold">5.685</td>
+                        <td>5.361</td>
+                        <td>4.283</td>
+                        <td class="has-background-primary-light">5.633</td>
+                      </tr>
+                      <tr>
+                        <td>CLIP-IQA &uarr;</td>
+                        <td>0.262</td>
+                        <td class="has-text-danger has-text-weight-bold">0.279</td>
+                        <td>0.247</td>
+                        <td>0.251</td>
+                        <td class="has-text-info has-text-weight-bold">0.274</td>
+                        <td>0.212</td>
+                        <td>0.208</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">0.274</td>
+                      </tr>
+                      <tr>
+                        <td>PI &darr;</td>
+                        <td>5.235</td>
+                        <td class="has-text-danger has-text-weight-bold">4.651</td>
+                        <td>4.934</td>
+                        <td>5.011</td>
+                        <td>4.869</td>
+                        <td>5.013</td>
+                        <td>5.965</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">4.787</td>
+                      </tr>
+                      <tr>
+                        <td>BRISQUE &darr;</td>
+                        <td>49.636</td>
+                        <td>46.799</td>
+                        <td class="has-text-danger has-text-weight-bold">40.207</td>
+                        <td>46.610</td>
+                        <td>48.970</td>
+                        <td>42.742</td>
+                        <td>42.401</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">35.895</td>
+                      </tr>
+                      <tr>
+                        <td>NIQE &darr;</td>
+                        <td>5.708</td>
+                        <td class="has-text-info has-text-weight-bold">5.182</td>
+                        <td>5.258</td>
+                        <td>5.341</td>
+                        <td>5.370</td>
+                        <td>5.256</td>
+                        <td>5.963</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.128</td>
+                      </tr>
+                      <tr style="border-bottom: 2px solid #dbdbdb;">
+                        <td>ILNIQE &darr;</td>
+                        <td>34.999</td>
+                        <td>33.380</td>
+                        <td class="has-text-info has-text-weight-bold">31.848</td>
+                        <td>34.550</td>
+                        <td>33.588</td>
+                        <td>32.580</td>
+                        <td>37.317</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">27.548</td>
+                      </tr>
+
+                      <tr>
+                        <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">BSD</td>
+                        <td>PSNR &uarr;</td>
+                        <td class="has-text-danger has-text-weight-bold">30.410</td>
+                        <td>28.66</td>
+                        <td>27.97</td>
+                        <td>29.53</td>
+                        <td>28.82</td>
+                        <td>26.64</td>
+                        <td>27.67</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">29.56</td>
+                      </tr>
+                      <tr>
+                        <td>SSIM &uarr;</td>
+                        <td class="has-text-danger has-text-weight-bold">0.923</td>
+                        <td>0.907</td>
+                        <td>0.885</td>
+                        <td class="has-text-danger has-text-weight-bold">0.923</td>
+                        <td class="has-text-info has-text-weight-bold">0.910</td>
+                        <td>0.885</td>
+                        <td>0.862</td>
+                        <td class="has-background-primary-light">0.893</td>
+                      </tr>
+                      <tr>
+                        <td>MANIQA &uarr;</td>
+                        <td class="has-text-danger has-text-weight-bold">0.571</td>
+                        <td>0.565</td>
+                        <td>0.362</td>
+                        <td>0.510</td>
+                        <td>0.536</td>
+                        <td>0.461</td>
+                        <td>0.427</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">0.568</td>
+                      </tr>
+                      <tr>
+                        <td>LIQE &uarr;</td>
+                        <td>2.325</td>
+                        <td class="has-text-danger has-text-weight-bold">2.452</td>
+                        <td>1.048</td>
+                        <td>1.742</td>
+                        <td>2.132</td>
+                        <td>1.479</td>
+                        <td>1.296</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">2.348</td>
+                      </tr>
+                      <tr>
+                        <td>NRQM &uarr;</td>
+                        <td>4.927</td>
+                        <td class="has-text-danger has-text-weight-bold">5.806</td>
+                        <td>4.634</td>
+                        <td>4.772</td>
+                        <td class="has-text-info has-text-weight-bold">5.229</td>
+                        <td>5.141</td>
+                        <td>4.433</td>
+                        <td class="has-background-primary-light">5.096</td>
+                      </tr>
+                      <tr>
+                        <td>CLIP-IQA &uarr;</td>
+                        <td>0.279</td>
+                        <td class="has-text-danger has-text-weight-bold">0.283</td>
+                        <td>0.188</td>
+                        <td>0.234</td>
+                        <td>0.264</td>
+                        <td>0.179</td>
+                        <td>0.195</td>
+                        <td class="has-text-info has-text-weight-bold has-background-primary-light">0.282</td>
+                      </tr>
+                      <tr>
+                        <td>PI &darr;</td>
+                        <td>5.800</td>
+                        <td class="has-text-danger has-text-weight-bold">5.189</td>
+                        <td>6.100</td>
+                        <td>5.819</td>
+                        <td class="has-text-info has-text-weight-bold">5.560</td>
+                        <td>5.934</td>
+                        <td>6.422</td>
+                        <td class="has-background-primary-light">5.589</td>
+                      </tr>
+                      <tr>
+                        <td>BRISQUE &darr;</td>
+                        <td>47.363</td>
+                        <td>39.518</td>
+                        <td class="has-text-danger has-text-weight-bold">24.113</td>
+                        <td>46.358</td>
+                        <td>46.388</td>
+                        <td class="has-text-info has-text-weight-bold">29.108</td>
+                        <td>36.347</td>
+                        <td class="has-background-primary-light">40.514</td>
+                      </tr>
+                      <tr>
+                        <td>NIQE &darr;</td>
+                        <td>5.799</td>
+                        <td class="has-text-info has-text-weight-bold">5.464</td>
+                        <td>6.469</td>
+                        <td>5.758</td>
+                        <td>5.721</td>
+                        <td>5.881</td>
+                        <td>6.569</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.455</td>
+                      </tr>
+                      <tr style="border-bottom: 2px solid #dbdbdb;">
+                        <td>ILNIQE &darr;</td>
+                        <td>42.040</td>
+                        <td>38.708</td>
+                        <td class="has-text-danger has-text-weight-bold">31.513</td>
+                        <td>41.328</td>
+                        <td>40.506</td>
+                        <td class="has-text-info has-text-weight-bold">37.435</td>
+                        <td>50.182</td>
+                        <td class="has-background-primary-light">39.383</td>
+                      </tr>
+
+                      <tr>
+                        <td rowspan="10" class="has-text-centered has-text-weight-bold" style="vertical-align: middle;">RSBlur</td>
+                        <td>PSNR &uarr;</td>
+                        <td>29.27</td>
+                        <td>29.47</td>
+                        <td>22.48</td>
+                        <td class="has-text-info has-text-weight-bold">29.98</td>
+                        <td class="has-text-danger has-text-weight-bold">30.91</td>
+                        <td>26.19</td>
+                        <td>27.82</td>
+                        <td class="has-background-primary-light">28.85</td>
+                      </tr>
+                      <tr>
+                        <td>SSIM &uarr;</td>
+                        <td>0.864</td>
+                        <td class="has-text-info has-text-weight-bold">0.875</td>
+                        <td>0.651</td>
+                        <td class="has-text-danger has-text-weight-bold">0.887</td>
+                        <td>0.818</td>
+                        <td>0.833</td>
+                        <td>0.821</td>
+                        <td class="has-background-primary-light">0.820</td>
+                      </tr>
+                      <tr>
+                        <td>MANIQA &uarr;</td>
+                        <td>0.442</td>
+                        <td class="has-text-info has-text-weight-bold">0.452</td>
+                        <td>0.362</td>
+                        <td>0.420</td>
+                        <td>0.415</td>
+                        <td>0.398</td>
+                        <td>0.441</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">0.533</td>
+                      </tr>
+                      <tr>
+                        <td>LIQE &uarr;</td>
+                        <td class="has-text-info has-text-weight-bold">1.342</td>
+                        <td>1.124</td>
+                        <td>1.048</td>
+                        <td>1.069</td>
+                        <td>1.111</td>
+                        <td>1.018</td>
+                        <td>1.015</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">1.404</td>
+                      </tr>
+                      <tr>
+                        <td>NRQM &uarr;</td>
+                        <td>3.769</td>
+                        <td>3.817</td>
+                        <td>4.634</td>
+                        <td>3.523</td>
+                        <td>3.642</td>
+                        <td class="has-text-info has-text-weight-bold">5.520</td>
+                        <td>4.357</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.597</td>
+                      </tr>
+                      <tr>
+                        <td>CLIP-IQA &uarr;</td>
+                        <td class="has-text-danger has-text-weight-bold">0.262</td>
+                        <td>0.246</td>
+                        <td>0.188</td>
+                        <td>0.204</td>
+                        <td class="has-text-info has-text-weight-bold">0.248</td>
+                        <td>0.170</td>
+                        <td>0.169</td>
+                        <td class="has-background-primary-light">0.236</td>
+                      </tr>
+                      <tr>
+                        <td>PI &darr;</td>
+                        <td>6.427</td>
+                        <td>6.851</td>
+                        <td class="has-text-info has-text-weight-bold">6.100</td>
+                        <td>6.820</td>
+                        <td>7.065</td>
+                        <td>6.296</td>
+                        <td>6.677</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">4.980</td>
+                      </tr>
+                      <tr>
+                        <td>BRISQUE &darr;</td>
+                        <td>52.768</td>
+                        <td>50.286</td>
+                        <td class="has-text-info has-text-weight-bold">24.113</td>
+                        <td>54.119</td>
+                        <td>58.433</td>
+                        <td>39.250</td>
+                        <td class="has-text-danger has-text-weight-bold">21.942</td>
+                        <td class="has-background-primary-light">30.677</td>
+                      </tr>
+                      <tr>
+                        <td>NIQE &darr;</td>
+                        <td>6.522</td>
+                        <td>7.348</td>
+                        <td class="has-text-info has-text-weight-bold">6.469</td>
+                        <td>6.943</td>
+                        <td>7.532</td>
+                        <td>7.533</td>
+                        <td>6.840</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">5.292</td>
+                      </tr>
+                      <tr>
+                        <td>ILNIQE &darr;</td>
+                        <td>32.349</td>
+                        <td>37.794</td>
+                        <td class="has-text-info has-text-weight-bold">31.513</td>
+                        <td>36.354</td>
+                        <td>39.651</td>
+                        <td>36.035</td>
+                        <td>41.705</td>
+                        <td class="has-text-danger has-text-weight-bold has-background-primary-light">25.833</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="content has-text-justified is-size-7" style="max-width: 90%; margin: 10px auto;">
+                <p>
+                  <strong>Note:</strong> Quantitative comparison with state-of-the-art deblurring methods on six widely used benchmarks. Higher values indicate better performance for &uarr; metrics, and lower values for &darr;. <span class="has-text-danger has-text-weight-bold">Red</span> indicates the best result, and <span class="has-text-info has-text-weight-bold">Blue</span> indicates the second best.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
