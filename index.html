@@ -219,6 +219,7 @@
     </div>
   </div>
 </section>
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -226,210 +227,203 @@
         
         <h2 class="title is-3">The Critical Role of Blur Patterns in Real-World Generalization</h2>
         
-        <h3 class="title is-4 has-text-left">1. Limitations of Existing Models in Real-World Blur Scenarios</h3>
         <div class="content has-text-justified">
           <p>
-            Despite recent progress, state-of-the-art methods struggle to generalize to real-world blur patterns outside their training distribution, often failing even in visually simple scenes. This suggests a reliance on dataset-specific features rather than transferable blur representations. To address this, we propose <strong>GLOWDeblur</strong>, a lightweight model that explicitly leverages blur-pattern priors to ensure robust generalization across diverse real-world scenarios.
+            Despite recent progress, state-of-the-art deblurring methods struggle to generalize to real-world scenarios, often failing even in visually simple scenes due to a reliance on dataset-specific distributions. Our cross-dataset analysis reveals that <strong>blur pattern diversity</strong>—rather than just image realism—is the dominant factor in this generalization gap. To address this, we propose <strong>Blur Pattern Pretraining (BPP)</strong>, a strategy that learns intrinsic blur priors from diverse synthetic data. As demonstrated below, BPP effectively bridges distribution gaps and resolves domain conflicts, serving as a core component of our <strong>GLOWDeblur</strong> framework.
           </p>
         </div>
 
-        <div class="content has-text-centered" style="overflow-x: auto; margin-bottom: 2.5rem;">
-          <h5 class="title is-6">Cross-dataset results (PSNR/SSIM) revealing generalization gaps</h5>
-          <div class="table-container">
-            <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7">
-              <thead>
-                <tr class="has-background-light">
-                  <th style="vertical-align: middle;">Training Set \ Test Set</th>
-                  <th>GoPro</th>
-                  <th>HIDE</th>
-                  <th>REDS</th>
-                  <th>RealBlur</th>
-                  <th>BSD</th>
-                  <th>RSBlur</th>
-                  <th>GSBlur</th>
-                  <th>Avg.</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">GoPro (Synthetic)</td>
-                  <td class="has-text-danger has-text-weight-bold">32.92 / 0.94</td>
-                  <td class="has-text-info has-text-weight-bold">31.22 (↓0.40)/ 0.92</td>
-                  <td>26.93 (↓7.46) / 0.82</td>
-                  <td>28.96 (↓3.13) / 0.88</td>
-                  <td>24.43 (↓9.32) / 0.90</td>
-                  <td>29.30 (↓3.68) / 0.86</td>
-                  <td>24.94 (↓6.43) / 0.82</td>
-                  <td>28.39 / 0.88</td>
-                </tr>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">HIDE (Synthetic)</td>
-                  <td class="has-text-info has-text-weight-bold">32.60 (↓0.32) / 0.94</td>
-                  <td class="has-text-danger has-text-weight-bold">31.62 / 0.93</td>
-                  <td>26.68 (↓7.71) / 0.83</td>
-                  <td>27.76 (↓4.33) / 0.86</td>
-                  <td>25.34 (↓8.41) / 0.85</td>
-                  <td>27.77 (↓5.21) / 0.83</td>
-                  <td>23.40 (↓7.97) / 0.80</td>
-                  <td>27.88 / 0.86</td>
-                </tr>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">REDS (Synthetic)</td>
-                  <td>26.21 (↓6.71) / 0.83</td>
-                  <td>24.42 (↓7.20) / 0.80</td>
-                  <td class="has-text-danger has-text-weight-bold">34.39 / 0.94</td>
-                  <td>28.72 (↓3.37) / 0.86</td>
-                  <td>28.90 (↓4.85) / 0.84</td>
-                  <td>28.09 (↓4.89) / 0.87</td>
-                  <td>24.42 (↓6.95) / 0.80</td>
-                  <td>27.88 / 0.85</td>
-                </tr>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">RealBlur (Real)</td>
-                  <td>24.50 (↓8.42) / 0.82</td>
-                  <td>23.60 (↓8.02) / 0.81</td>
-                  <td>25.85 (↓8.54) / 0.79</td>
-                  <td class="has-text-danger has-text-weight-bold">32.09 / 0.92</td>
-                  <td>28.78 (↓4.97) / 0.91</td>
-                  <td>29.65 (↓3.33) / 0.87</td>
-                  <td>24.92 (↓6.45) / 0.81</td>
-                  <td>27.06 / 0.85</td>
-                </tr>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">BSD (Real)</td>
-                  <td>27.27 (↓5.65) / 0.86</td>
-                  <td>26.27 (↓5.35) / 0.85</td>
-                  <td>28.20 (↓6.19) / 0.84</td>
-                  <td>29.64 (↓2.45) / 0.89</td>
-                  <td class="has-text-danger has-text-weight-bold">33.75 / 0.96</td>
-                  <td>30.45 (↓2.53) / 0.89</td>
-                  <td>26.78 (↓4.59) / 0.85</td>
-                  <td>28.91 / 0.88</td>
-                </tr>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">RSBlur (Real)</td>
-                  <td>27.55 (↓5.37) / 0.87</td>
-                  <td>25.79 (↓5.83) / 0.84</td>
-                  <td>28.08 (↓6.31) /0.84</td>
-                  <td class="has-text-info has-text-weight-bold">30.41 (↓1.68) / 0.89</td>
-                  <td>30.85 (↓2.90) / 0.94</td>
-                  <td class="has-text-danger has-text-weight-bold">32.98 / 0.93</td>
-                  <td class="has-text-info has-text-weight-bold">27.63 (↓3.74) / 0.86</td>
-                  <td class="has-text-info has-text-weight-bold">29.04 / 0.88</td>
-                </tr>
-                <tr>
-                  <td class="has-text-weight-bold has-text-left">GSBlur (Simulated)</td>
-                  <td>28.51 (↓4.41) / 0.90</td>
-                  <td>26.12 (↓5.50) / 0.87</td>
-                  <td class="has-text-info has-text-weight-bold">30.29 (↓4.10) / 0.90</td>
-                  <td>30.06 (↓2.03) / 0.91</td>
-                  <td class="has-text-info has-text-weight-bold">31.24 (↓2.51) / 0.94</td>
-                  <td class="has-text-info has-text-weight-bold">32.01 (↓0.97) / 0.92</td>
-                  <td class="has-text-danger has-text-weight-bold">31.37 / 0.92</td>
-                  <td class="has-text-danger has-text-weight-bold">29.94 / 0.91</td>
-                </tr>
-              </tbody>
-            </table>
+        <div id="motivation-carousel" class="carousel results-carousel">
+          
+          <div class="item">
+            <div class="content has-text-centered" style="overflow-x: auto;">
+              <h5 class="title is-5">1. Cross-dataset results revealing generalization gaps</h5>
+              <div class="table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7" style="margin: 0 auto;">
+                  <thead>
+                    <tr class="has-background-light">
+                      <th style="vertical-align: middle;">Training Set \ Test Set</th>
+                      <th>GoPro</th>
+                      <th>HIDE</th>
+                      <th>REDS</th>
+                      <th>RealBlur</th>
+                      <th>BSD</th>
+                      <th>RSBlur</th>
+                      <th>GSBlur</th>
+                      <th>Avg.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">GoPro (Synthetic)</td>
+                      <td class="has-text-danger has-text-weight-bold">32.92 / 0.94</td>
+                      <td class="has-text-info has-text-weight-bold">31.22 (↓0.40)/ 0.92</td>
+                      <td>26.93 (↓7.46) / 0.82</td>
+                      <td>28.96 (↓3.13) / 0.88</td>
+                      <td>24.43 (↓9.32) / 0.90</td>
+                      <td>29.30 (↓3.68) / 0.86</td>
+                      <td>24.94 (↓6.43) / 0.82</td>
+                      <td>28.39 / 0.88</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">HIDE (Synthetic)</td>
+                      <td class="has-text-info has-text-weight-bold">32.60 (↓0.32) / 0.94</td>
+                      <td class="has-text-danger has-text-weight-bold">31.62 / 0.93</td>
+                      <td>26.68 (↓7.71) / 0.83</td>
+                      <td>27.76 (↓4.33) / 0.86</td>
+                      <td>25.34 (↓8.41) / 0.85</td>
+                      <td>27.77 (↓5.21) / 0.83</td>
+                      <td>23.40 (↓7.97) / 0.80</td>
+                      <td>27.88 / 0.86</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">REDS (Synthetic)</td>
+                      <td>26.21 (↓6.71) / 0.83</td>
+                      <td>24.42 (↓7.20) / 0.80</td>
+                      <td class="has-text-danger has-text-weight-bold">34.39 / 0.94</td>
+                      <td>28.72 (↓3.37) / 0.86</td>
+                      <td>28.90 (↓4.85) / 0.84</td>
+                      <td>28.09 (↓4.89) / 0.87</td>
+                      <td>24.42 (↓6.95) / 0.80</td>
+                      <td>27.88 / 0.85</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">RealBlur (Real)</td>
+                      <td>24.50 (↓8.42) / 0.82</td>
+                      <td>23.60 (↓8.02) / 0.81</td>
+                      <td>25.85 (↓8.54) / 0.79</td>
+                      <td class="has-text-danger has-text-weight-bold">32.09 / 0.92</td>
+                      <td>28.78 (↓4.97) / 0.91</td>
+                      <td>29.65 (↓3.33) / 0.87</td>
+                      <td>24.92 (↓6.45) / 0.81</td>
+                      <td>27.06 / 0.85</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">BSD (Real)</td>
+                      <td>27.27 (↓5.65) / 0.86</td>
+                      <td>26.27 (↓5.35) / 0.85</td>
+                      <td>28.20 (↓6.19) / 0.84</td>
+                      <td>29.64 (↓2.45) / 0.89</td>
+                      <td class="has-text-danger has-text-weight-bold">33.75 / 0.96</td>
+                      <td>30.45 (↓2.53) / 0.89</td>
+                      <td>26.78 (↓4.59) / 0.85</td>
+                      <td>28.91 / 0.88</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">RSBlur (Real)</td>
+                      <td>27.55 (↓5.37) / 0.87</td>
+                      <td>25.79 (↓5.83) / 0.84</td>
+                      <td>28.08 (↓6.31) /0.84</td>
+                      <td class="has-text-info has-text-weight-bold">30.41 (↓1.68) / 0.89</td>
+                      <td>30.85 (↓2.90) / 0.94</td>
+                      <td class="has-text-danger has-text-weight-bold">32.98 / 0.93</td>
+                      <td class="has-text-info has-text-weight-bold">27.63 (↓3.74) / 0.86</td>
+                      <td class="has-text-info has-text-weight-bold">29.04 / 0.88</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-weight-bold has-text-left">GSBlur (Simulated)</td>
+                      <td>28.51 (↓4.41) / 0.90</td>
+                      <td>26.12 (↓5.50) / 0.87</td>
+                      <td class="has-text-info has-text-weight-bold">30.29 (↓4.10) / 0.90</td>
+                      <td>30.06 (↓2.03) / 0.91</td>
+                      <td class="has-text-info has-text-weight-bold">31.24 (↓2.51) / 0.94</td>
+                      <td class="has-text-info has-text-weight-bold">32.01 (↓0.97) / 0.92</td>
+                      <td class="has-text-danger has-text-weight-bold">31.37 / 0.92</td>
+                      <td class="has-text-danger has-text-weight-bold">29.94 / 0.91</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="is-size-7 has-text-grey" style="margin-top: 5px;">
+                Models trained on one dataset degrade significantly on others, highlighting a substantial distribution gap.
+              </p>
+            </div>
           </div>
-          <div class="content has-text-justified is-size-7">
-            <p>
-              <strong>Note:</strong> <span class="has-text-danger has-text-weight-bold">Red</span> indicates the best in-dataset result, and <span class="has-text-info has-text-weight-bold">Blue</span> indicates the second-best cross-dataset result. Avg. column reports mean PSNR/SSIM across datasets.
-            </p>
+
+          <div class="item">
+            <div class="content has-text-centered" style="width: 80%; margin: 0 auto;">
+              <h5 class="title is-5">2. Dataset Bias and Blur Pattern Discrepancies</h5>
+              <img src="static/images/blur_pattern.png" alt="Dataset-specific blur patterns" style="width: 100%; height: auto; border-radius: 5px;">
+              <p class="is-size-7 has-text-grey">
+                Illustration of dataset-specific blur patterns, highlighting notable distribution differences in orientation, magnitude, and locality.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <h3 class="title is-4 has-text-left" style="margin-top: 2rem;">2. Dataset Bias and Blur Pattern Discrepancies</h3>
-        <div class="content has-text-justified">
-          <p>
-            Our cross-dataset experiments reveal that models trained on specific datasets degrade significantly on others, highlighting a substantial distribution gap beyond just image realism. Crucially, the simulation-based GSBlur dataset enables superior cross-dataset robustness despite its low realism. This confirms that <strong>blur pattern diversity</strong>—rather than image realism alone—is the dominant factor in achieving generalizable deblurring.
-          </p>
-        </div>
-
-        <div class="content has-text-centered" style="margin: 2rem 0 2.5rem 0;">
-          <img src="static/images/blur_pattern.png" alt="Dataset-specific blur patterns" style="width: 100%; height: auto; border-radius: 5px;">
-          <p class="is-size-7 has-text-grey"><strong>Figure:</strong> Illustration of dataset-specific blur patterns, highlighting notable distribution differences in orientation, magnitude, and locality.</p>
-        </div>
-
-        <h3 class="title is-4 has-text-left" style="margin-top: 2rem;">3. Blur Pattern Pretraining (BPP)</h3>
-        <div class="content has-text-justified">
-          <p>
-            To harness this insight, we propose <strong>Blur Pattern Pretraining (BPP)</strong>, which learns intrinsic blur priors from diverse synthetic data before fine-tuning on real-world datasets. As shown in the table below, BPP consistently outperforms direct training (rows a-c) and resolves domain conflicts inherent in naïve mixed training (row d vs. e). We integrate this two-stage strategy into GLOWDeblur to maximize both generalization capability and restoration quality.
-          </p>
-        </div>
-
-        <div class="content has-text-centered" style="overflow-x: auto; margin-bottom: 2rem;">
-          <h5 class="title is-6">Performance gains from BPP (PSNR/SSIM) on RealBlur-J, BSD, and RSBlur</h5>
-          <div class="table-container">
-            <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7">
-              <thead>
-                <tr class="has-background-light">
-                  <th class="has-text-centered" style="vertical-align: middle;">No.</th>
-                  <th class="has-text-left" style="vertical-align: middle;">Training set</th>
-                  <th class="has-text-centered" style="vertical-align: middle;">BPP</th>
-                  <th class="has-text-centered">RealBlur-J</th>
-                  <th class="has-text-centered">BSD</th>
-                  <th class="has-text-centered">RSBlur</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="has-text-centered">(a)</td>
-                  <td class="has-text-left">RealBlur</td>
-                  <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
-                  <td class="has-text-danger has-text-weight-bold">32.26 (↑0.17) / 0.93 (↑0.01)</td>
-                  <td>29.76 (↓3.99) / 0.92 (↓0.04)</td>
-                  <td>30.28 (↓2.70) / 0.89 (↓0.04)</td>
-                </tr>
-                <tr>
-                  <td class="has-text-centered">(b)</td>
-                  <td class="has-text-left">BSD</td>
-                  <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
-                  <td>29.95 (↓2.14) / 0.90 (↓0.02)</td>
-                  <td class="has-text-danger has-text-weight-bold">34.21 (↑0.46) / 0.96 (±0.00)</td>
-                  <td>31.15 (↓1.83) / 0.90 (↓0.03)</td>
-                </tr>
-                <tr>
-                  <td class="has-text-centered">(c)</td>
-                  <td class="has-text-left">RSBlur</td>
-                  <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
-                  <td>30.63 (↓1.46) / 0.90 (↓0.02)</td>
-                  <td>31.22 (↓2.53) / 0.95 (↓0.01)</td>
-                  <td class="has-text-danger has-text-weight-bold">33.69 (↑0.71) / 0.94 (↑0.01)</td>
-                </tr>
-                <tr>
-                  <td class="has-text-centered">(d)</td>
-                  <td class="has-text-left">RealBlur + BSD + RSBlur</td>
-                  <td class="has-text-centered"><span class="icon has-text-danger"><i class="fas fa-times"></i></span></td>
-                  <td>30.83 (↓1.26) / 0.89 (↓0.03)</td>
-                  <td>31.99 (↓1.76) / 0.95 (↓0.01)</td>
-                  <td>31.24 (↓1.74) / 0.90 (↓0.03)</td>
-                </tr>
-                <tr>
-                  <td class="has-text-centered">(e)</td>
-                  <td class="has-text-left">RealBlur + BSD + RSBlur</td>
-                  <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
-                  <td class="has-text-info has-text-weight-bold">32.11 (↑0.02) / 0.93 (↑0.01)</td>
-                  <td class="has-text-info has-text-weight-bold">33.62 (↓0.13) / 0.96 (±0.00)</td>
-                  <td class="has-text-info has-text-weight-bold">33.65 (↑0.67) / 0.94 (↑0.01)</td>
-                </tr>
-                <tr class="has-background-white-ter">
-                  <td></td>
-                  <td class="has-text-left has-text-weight-bold">Best same-dataset performance</td>
-                  <td>--</td>
-                  <td class="has-text-weight-bold">32.09 / 0.92</td>
-                  <td class="has-text-weight-bold">33.75 / 0.96</td>
-                  <td class="has-text-weight-bold">32.98 / 0.93</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="item">
+            <div class="content has-text-centered" style="overflow-x: auto;">
+              <h5 class="title is-5">3. Effectiveness of Blur Pattern Pretraining (BPP)</h5>
+              <div class="table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7" style="margin: 0 auto;">
+                  <thead>
+                    <tr class="has-background-light">
+                      <th class="has-text-centered">No.</th>
+                      <th class="has-text-left">Training set</th>
+                      <th class="has-text-centered">BPP</th>
+                      <th class="has-text-centered">RealBlur-J</th>
+                      <th class="has-text-centered">BSD</th>
+                      <th class="has-text-centered">RSBlur</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="has-text-centered">(a)</td>
+                      <td class="has-text-left">RealBlur</td>
+                      <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
+                      <td class="has-text-danger has-text-weight-bold">32.26 (↑0.17) / 0.93 (↑0.01)</td>
+                      <td>29.76 (↓3.99) / 0.92 (↓0.04)</td>
+                      <td>30.28 (↓2.70) / 0.89 (↓0.04)</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-centered">(b)</td>
+                      <td class="has-text-left">BSD</td>
+                      <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
+                      <td>29.95 (↓2.14) / 0.90 (↓0.02)</td>
+                      <td class="has-text-danger has-text-weight-bold">34.21 (↑0.46) / 0.96 (±0.00)</td>
+                      <td>31.15 (↓1.83) / 0.90 (↓0.03)</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-centered">(c)</td>
+                      <td class="has-text-left">RSBlur</td>
+                      <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
+                      <td>30.63 (↓1.46) / 0.90 (↓0.02)</td>
+                      <td>31.22 (↓2.53) / 0.95 (↓0.01)</td>
+                      <td class="has-text-danger has-text-weight-bold">33.69 (↑0.71) / 0.94 (↑0.01)</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-centered">(d)</td>
+                      <td class="has-text-left">RealBlur + BSD + RSBlur</td>
+                      <td class="has-text-centered"><span class="icon has-text-danger"><i class="fas fa-times"></i></span></td>
+                      <td>30.83 (↓1.26) / 0.89 (↓0.03)</td>
+                      <td>31.99 (↓1.76) / 0.95 (↓0.01)</td>
+                      <td>31.24 (↓1.74) / 0.90 (↓0.03)</td>
+                    </tr>
+                    <tr>
+                      <td class="has-text-centered">(e)</td>
+                      <td class="has-text-left">RealBlur + BSD + RSBlur</td>
+                      <td class="has-text-centered"><span class="icon has-text-success"><i class="fas fa-check"></i></span></td>
+                      <td class="has-text-info has-text-weight-bold">32.11 (↑0.02) / 0.93 (↑0.01)</td>
+                      <td class="has-text-info has-text-weight-bold">33.62 (↓0.13) / 0.96 (±0.00)</td>
+                      <td class="has-text-info has-text-weight-bold">33.65 (↑0.67) / 0.94 (↑0.01)</td>
+                    </tr>
+                    <tr class="has-background-white-ter">
+                      <td></td>
+                      <td class="has-text-left has-text-weight-bold">Best same-dataset performance</td>
+                      <td>--</td>
+                      <td class="has-text-weight-bold">32.09 / 0.92</td>
+                      <td class="has-text-weight-bold">33.75 / 0.96</td>
+                      <td class="has-text-weight-bold">32.98 / 0.93</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="is-size-7 has-text-grey" style="margin-top: 5px;">
+                BPP consistently boosts performance and resolves domain conflicts in mixed training.
+              </p>
+            </div>
           </div>
-          <div class="content has-text-justified is-size-7">
-            <p>
-              <strong>Note:</strong> <span class="has-text-danger has-text-weight-bold">Red</span> indicates superior in-distribution performance after BPP compared to the baseline. <span class="has-text-info has-text-weight-bold">Blue</span> highlights BPP's effectiveness in resolving conflicts in mixed training.
-            </p>
-          </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </div>
