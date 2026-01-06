@@ -1,5 +1,9 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+// --------------------------------------------------------
+// Helper Functions
+// --------------------------------------------------------
+
 // More Works Dropdown Functionality
 function toggleMoreWorks() {
     const dropdown = document.getElementById('moreWorksDropdown');
@@ -21,8 +25,10 @@ document.addEventListener('click', function(event) {
     const button = document.querySelector('.more-works-btn');
     
     if (container && !container.contains(event.target)) {
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
+        if (dropdown && dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+            button.classList.remove('active');
+        }
     }
 });
 
@@ -31,8 +37,10 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         const dropdown = document.getElementById('moreWorksDropdown');
         const button = document.querySelector('.more-works-btn');
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
+        if (dropdown && dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+            button.classList.remove('active');
+        }
     }
 });
 
@@ -43,10 +51,12 @@ function copyBibTeX() {
     const copyText = button.querySelector('.copy-text');
     
     if (bibtexElement) {
-        navigator.clipboard.writeText(bibtexElement.textContent).then(function() {
+        const textToCopy = bibtexElement.textContent;
+        
+        navigator.clipboard.writeText(textToCopy).then(function() {
             // Success feedback
             button.classList.add('copied');
-            copyText.textContent = 'Cop';
+            copyText.textContent = 'Copied!';
             
             setTimeout(function() {
                 button.classList.remove('copied');
@@ -56,18 +66,21 @@ function copyBibTeX() {
             console.error('Failed to copy: ', err);
             // Fallback for older browsers
             const textArea = document.createElement('textarea');
-            textArea.value = bibtexElement.textContent;
+            textArea.value = textToCopy;
             document.body.appendChild(textArea);
             textArea.select();
-            document.execCommand('copy');
+            try {
+                document.execCommand('copy');
+                button.classList.add('copied');
+                copyText.textContent = 'Copied!';
+                setTimeout(function() {
+                    button.classList.remove('copied');
+                    copyText.textContent = 'Copy';
+                }, 2000);
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+            }
             document.body.removeChild(textArea);
-            
-            button.classList.add('copied');
-            copyText.textContent = 'Cop';
-            setTimeout(function() {
-                button.classList.remove('copied');
-                copyText.textContent = 'Copy';
-            }, 2000);
         });
     }
 }
@@ -83,10 +96,12 @@ function scrollToTop() {
 // Show/hide scroll to top button
 window.addEventListener('scroll', function() {
     const scrollButton = document.querySelector('.scroll-to-top');
-    if (window.pageYOffset > 300) {
-        scrollButton.classList.add('visible');
-    } else {
-        scrollButton.classList.remove('visible');
+    if (scrollButton) {
+        if (window.pageYOffset > 300) {
+            scrollButton.classList.add('visible');
+        } else {
+            scrollButton.classList.remove('visible');
+        }
     }
 });
 
@@ -100,18 +115,15 @@ function setupVideoCarouselAutoplay() {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // Video is in view, play it
                 video.play().catch(e => {
-                    // Autoplay failed, probably due to browser policy
                     console.log('Autoplay prevented:', e);
                 });
             } else {
-                // Video is out of view, pause it
                 video.pause();
             }
         });
     }, {
-        threshold: 0.5 // Trigger when 50% of the video is visible
+        threshold: 0.5
     });
     
     carouselVideos.forEach(video => {
@@ -119,24 +131,39 @@ function setupVideoCarouselAutoplay() {
     });
 }
 
+// --------------------------------------------------------
+// Initialization
+// --------------------------------------------------------
+
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
+    
+    // 1. Initialize Visual Results Carousel (Images)
+    // 开启自动播放，适合展示图片
+    var carousels = bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        pagination: true,
+    });
 
-    var options = {
-		slidesToScroll: 1,
-		slidesToShow: 1,
-		loop: true,
-		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 5000,
-    }
+    // 2. Initialize Quantitative & Motivation Carousels (Tables/Text)
+    // 关闭自动播放 (autoplay: false)，防止用户阅读表格时自动跳转
+    // 同时开启分页点 (pagination: true) 方便切换
+    var tableCarousels = bulmaCarousel.attach('#quantitative-carousel, #motivation-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false, // 重要：表格不自动轮播
+        pagination: true,
+    });
 
-	// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-	
+    // Initialize Sliders (Comparison sliders if any)
     bulmaSlider.attach();
     
-    // Setup video autoplay for carousel
+    // Setup video autoplay
     setupVideoCarouselAutoplay();
-
-})
+});
